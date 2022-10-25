@@ -1,2 +1,3 @@
-# nbdev_cards
-This is me testing stuff
+# slgStableDiffusion
+Stable diffusion playground
+
