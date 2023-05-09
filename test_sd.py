@@ -14,7 +14,7 @@ from sd import mk_imgs, StableDiffusionPipe, animate, diffuse
 prompts = ["ultrarealistic teddy bear DJ mixing vinyl. dramatic lighting. #unrealengine"]
 prompts = ["ultrarealistic ai robot portrait, #unrealengine, 8k"]
 prompts = ["robot running towards its freedom, 8 k"]
-prompts = ["kandinsky painting"]
+prompts = ["painting by giorgio de chirico"]
 
 height = 512
 width = 512
@@ -32,4 +32,4 @@ pipe.to_device(device)
 # imgs = mk_imgs(images)
 # imgs[0].save("test.jpg")
 # animate
-animate(prompts, pipe, rootdir='.', name='kandinsky', device='cuda', max_frames=1000, num_steps=200, quality=90)
+animate(prompts, pipe, rootdir='.', name='chirico', device=device, max_frames=1000, num_steps=200, quality=90)

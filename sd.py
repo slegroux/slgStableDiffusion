@@ -65,13 +65,13 @@ def mk_imgs(images):
         res.append(Image.fromarray((image*255).round().astype("uint8")))
     return res
 
-def pil2latent(input_im, device='cuda'):
+def pil2latent(input_im, vae, device='cuda'):
     # Single image -> single latent in a batch (so size 1, 4, 64, 64)
     with torch.no_grad():
         latent = vae.encode(tfms.ToTensor()(input_im).unsqueeze(0).to(device).half()*2-1) # Note scaling
     return 0.18215 * latent.latent_dist.sample()
 
-def latents2pil(latents):
+def latents2pil(latents, vae):
     # bath of latents -> list of images
     latents = (1 / 0.18215) * latents
     with torch.no_grad():
